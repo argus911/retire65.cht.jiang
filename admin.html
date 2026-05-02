@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>退休歡送會 - 管理後台</title>
+  <link rel="stylesheet" href="cht-design-system.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--cht-font-primary);
+      background-color: var(--cht-bg-secondary);
+      color: var(--cht-text-primary);
+      line-height: var(--cht-leading-normal);
+    }
+    
+    .header {
+      background: linear-gradient(135deg, var(--cht-blue-primary), var(--cht-blue-logo));
+      color: white;
+      padding: 24px 32px;
+      box-shadow: var(--cht-shadow-md);
+    }
+    
+    .header h1 {
+      font-size: var(--cht-text-3xl);
+      font-weight: var(--cht-font-bold);
+      margin-bottom: 8px;
+    }
+    
+    .header p {
+      opacity: 0.9;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+    
+    .config-notice {
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      border-radius: var(--cht-radius-lg);
+      padding: 24px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    
+    .config-notice h3 {
+      color: #92400e;
+      margin-bottom: 12px;
+    }
+    
+    .config-notice p {
+      color: #78350f;
+      margin-bottom: 8px;
+    }
+    
+    .config-notice code {
+      background: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #dc2626;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    
+    .stat-card {
+      background: white;
+      padding: 24px;
+      border-radius: var(--cht-radius-lg);
+      box-shadow: var(--cht-shadow-md);
+      border-left: 4px solid var(--cht-innovation-orange);
+    }
+    
+    .stat-card.blue {
+      border-left-color: var(--cht-trust-blue);
+    }
+    
+    .stat-card.green {
+      border-left-color: var(--cht-accountability-green);
+    }
+    
+    .stat-label {
+      font-size: var(--cht-text-sm);
+      color: var(--cht-text-secondary);
+      margin-bottom: 8px;
+    }
+    
+    .stat-value {
+      font-size: var(--cht-text-4xl);
+      font-weight: var(--cht-font-bold);
+      color: var(--cht-text-primary);
+    }
+    
+    .section {
+      background: white;
+      border-radius: var(--cht-radius-lg);
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--cht-shadow-md);
+    }
+    
+    .section-title {
+      font-size: var(--cht-text-2xl);
+      font-weight: var(--cht-font-bold);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--cht-innovation-orange);
+    }
+    
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--cht-border-light);
+    }
+    
+    .tab {
+      padding: 12px 24px;
+      font-size: var(--cht-text-base);
+      font-weight: var(--cht-font-semibold);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--cht-text-secondary);
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s;
+      margin-bottom: -2px;
+    }
+    
+    .tab:hover {
+      color: var(--cht-trust-blue);
+    }
+    
+    .tab.active {
+      color: var(--cht-trust-blue);
+      border-bottom-color: var(--cht-trust-blue);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    .table-wrapper {
+      overflow-x: auto;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--cht-text-base);
+    }
+    
+    thead {
+      background-color: var(--cht-gray-50);
+    }
+    
+    th {
+      padding: 16px 12px;
+      text-align: left;
+      font-weight: var(--cht-font-semibold);
+      color: var(--cht-text-primary);
+      border-bottom: 2px solid var(--cht-border-medium);
+    }
+    
+    td {
+      padding: 16px 12px;
+      border-bottom: 1px solid var(--cht-border-light);
+    }
+    
+    tbody tr:hover {
+      background-color: var(--cht-gray-50);
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: var(--cht-radius-md);
+      font-size: var(--cht-text-xs);
+      font-weight: var(--cht-font-semibold);
+    }
+    
+    .badge-meat {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+    
+    .badge-veg {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+    
+    .badge-special {
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+    
+    .badge-carpool-yes {
+      background-color: #fee2e2;
+      color: #991b1b;
+    }
+    
+    .badge-carpool-no {
+      background-color: var(--cht-gray-100);
+      color: var(--cht-gray-700);
+    }
+    
+    .badge-carpool-offer {
+      background-color: #dcfce7;
+      color: #166534;
+    }
+    
+    .gift-chart {
+      margin-top: 24px;
+    }
+    
+    .gift-item {
+      margin-bottom: 20px;
+    }
+    
+    .gift-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-weight: var(--cht-font-medium);
+    }
+    
+    .gift-bar {
+      height: 32px;
+      background-color: var(--cht-gray-100);
+      border-radius: var(--cht-radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .gift-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cht-innovation-orange), var(--cht-innovation-light));
+      transition: width 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 12px;
+      color: white;
+      font-weight: var(--cht-font-bold);
+    }
+    
+    .message-list {
+      max-height: 600px;
+      overflow-y: auto;
+    }
+    
+    .message-item {
+      background: var(--cht-gray-50);
+      border-left: 4px solid var(--cht-trust-blue);
+      border-radius: var(--cht-radius-md);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    
+    .message-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .message-author {
+      font-weight: var(--cht-font-bold);
+      color: var(--cht-trust-blue);
+      font-size: var(--cht-text-lg);
+    }
+    
+    .message-time {
+      font-size: var(--cht-text-sm);
+      color: var(--cht-text-secondary);
+    }
+    
+    .message-content {
+      color: var(--cht-text-primary);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    
+    .message-files {
+      font-size: var(--cht-text-sm);
+      color: var(--cht-text-secondary);
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: var(--cht-text-base);
+      font-weight: var(--cht-font-semibold);
+      font-family: var(--cht-font-primary);
+      border: none;
+      border-radius: var(--cht-radius-md);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cht-trust-blue), var(--cht-trust-dark));
+      color: white;
+      box-shadow: var(--cht-shadow-md);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--cht-shadow-lg);
+    }
+    
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--cht-accountability-green), var(--cht-accountability-dark));
+      color: white;
+      box-shadow: var(--cht-shadow-md);
+    }
+    
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--cht-shadow-lg);
+    }
+    
+    .actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--cht-text-secondary);
+    }
+    
+    .empty-state-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+    
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    
+    .loading-spinner {
+      background: white;
+      padding: 32px 48px;
+      border-radius: var(--cht-radius-lg);
+      text-align: center;
+    }
+    
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid var(--cht-gray-200);
+      border-top-color: var(--cht-trust-blue);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 16px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 24px 16px;
+      }
+      
+      .section {
+        padding: 24px 16px;
+      }
+      
+      table {
+        font-size: var(--cht-text-sm);
+      }
+      
+      th, td {
+        padding: 12px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div>
+        <h1>🎉 蔣惠軫高級管理師退休歡送會 - 管理後台</h1>
+        <p>報名與留言管理系統（Google Sheets 即時同步）</p>
+      </div>
+      <div>
+        <a href="index.html" style="color: white; text-decoration: none; padding: 10px 20px; background: rgba(255,255,255,0.2); border-radius: 8px; font-weight: 600;">← 返回前台</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Configuration Notice -->
+    <div class="config-notice" id="configNotice" style="display: block;">
+      <h3>📊 後台管理說明</h3>
+      <p>由於 Google Apps Script 的跨域限制，後台無法直接顯示即時資料。</p>
+      <p><strong>請直接使用 Google Sheets 查看和管理所有報名與留言資料。</strong></p>
+      <button class="btn btn-primary" onclick="openGoogleSheets()" style="margin-top: 16px;">📊 開啟 Google Sheets</button>
+    </div>
+
+    <div style="background: white; border-radius: 16px; padding: 40px; text-align: center; margin-bottom: 32px;">
+      <h2 style="font-size: 28px; font-weight: bold; margin-bottom: 16px; color: var(--cht-trust-blue);">✅ 前台功能完全正常</h2>
+      <p style="font-size: 18px; color: var(--cht-text-secondary); margin-bottom: 24px;">
+        同仁可以正常報名與留言，所有資料都會即時寫入您的 Google Sheets。<br>
+        請使用以下按鈕直接查看和管理資料：
+      </p>
+      <button class="btn btn-secondary" onclick="openGoogleSheets()" style="font-size: 20px; padding: 16px 40px;">
+        🔗 開啟 Google Sheets 管理資料
+      </button>
+    </div>
+
+    <!-- Statistics - Hidden -->
+    <div class="stats-grid" style="display: none;">
+      <div class="stat-card">
+        <div class="stat-label">總報名人數</div>
+        <div class="stat-value" id="totalRegs">-</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-label">總留言數</div>
+        <div class="stat-value" id="totalMsgs">-</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-label">葷食人數</div>
+        <div class="stat-value" id="meatCount">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">素食人數</div>
+        <div class="stat-value" id="vegCount">-</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-label">需要共乘</div>
+        <div class="stat-value" id="carpoolNeed">-</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-label">可提供載送</div>
+        <div class="stat-value" id="carpoolOffer">-</div>
+      </div>
+    </div>
+
+    <!-- Main Content - Hidden -->
+    <div class="section" style="display: none;">
+      <div class="tabs">
+        <button class="tab active" data-tab="registrations">報名資訊</button>
+        <button class="tab" data-tab="messages">祝福留言</button>
+        <button class="tab" data-tab="gifts">禮品統計</button>
+      </div>
+
+      <!-- Registrations Tab -->
+      <div class="tab-content active" id="registrations">
+        <h2 class="section-title">報名資訊列表</h2>
+        <div class="table-wrapper">
+          <table id="regTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>姓名</th>
+                <th>部門</th>
+                <th>電話</th>
+                <th>Email</th>
+                <th>餐點</th>
+                <th>共乘</th>
+                <th>禮品選擇</th>
+                <th>備註</th>
+                <th>報名時間</th>
+              </tr>
+            </thead>
+            <tbody id="regTableBody">
+              <tr><td colspan="10" style="text-align: center; padding: 32px;">載入中...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" onclick="exportToCSV('registrations')">📥 匯出報名CSV</button>
+          <button class="btn btn-secondary" onclick="window.print()">🖨️ 列印</button>
+          <button class="btn btn-primary" onclick="refreshData()">🔄 重新整理</button>
+          <button class="btn btn-secondary" onclick="openGoogleSheets()">📊 開啟 Google Sheets</button>
+        </div>
+      </div>
+
+      <!-- Messages Tab -->
+      <div class="tab-content" id="messages">
+        <h2 class="section-title">祝福留言列表</h2>
+        <div class="message-list" id="messageList">
+          <div class="empty-state">
+            <div class="empty-state-icon">⏳</div>
+            <p>載入中...</p>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" onclick="exportToCSV('messages')">📥 匯出留言</button>
+          <button class="btn btn-secondary" onclick="window.print()">🖨️ 列印留言冊</button>
+        </div>
+      </div>
+
+      <!-- Gifts Tab -->
+      <div class="tab-content" id="gifts">
+        <h2 class="section-title">禮品選擇統計</h2>
+        <div class="gift-chart" id="giftChart">
+          <div class="empty-state">
+            <div class="empty-state-icon">⏳</div>
+            <p>載入中...</p>
+          </div>
+        </div>
+        <div style="margin-top: 32px;">
+          <h3 style="font-size: var(--cht-text-xl); font-weight: var(--cht-font-bold); margin-bottom: 16px;">其他禮品建議</h3>
+          <div id="giftSuggestions"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p>載入資料中...</p>
+    </div>
+  </div>
+
+  <script>
+    // ⚠️ 請在此設定您的 Google Sheets 網址
+    const GOOGLE_SHEETS_URL = 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit';
+    
+    // Open Google Sheets
+    function openGoogleSheets() {
+      if (GOOGLE_SHEETS_URL.includes('YOUR_SHEET_ID')) {
+        const url = prompt('請輸入您的 Google Sheets 網址：', '');
+        if (url) {
+          window.open(url, '_blank');
+        } else {
+          alert('請先設定 Google Sheets 網址，或手動開啟您的試算表。');
+        }
+      } else {
+        window.open(GOOGLE_SHEETS_URL, '_blank');
+      }
+    }
+    
+    // Tab switching
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        const targetTab = this.dataset.tab;
+        
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.getElementById(targetTab).classList.add('active');
+      });
+    });
+    
+    // Removed - use Google Sheets directly for data management
+    
+    // Update statistics
+    function updateStats() {
+      const regs = allData.registrations || [];
+      const msgs = allData.messages || [];
+      
+      document.getElementById('totalRegs').textContent = regs.length;
+      document.getElementById('totalMsgs').textContent = msgs.length;
+      
+      const meatCount = regs.filter(r => r['餐點'] === '葷食').length;
+      const vegCount = regs.filter(r => r['餐點'] === '素食').length;
+      const carpoolNeed = regs.filter(r => r['共乘'] === '需要').length;
+      const carpoolOffer = regs.filter(r => r['共乘'] === '可提供').length;
+      
+      document.getElementById('meatCount').textContent = meatCount;
+      document.getElementById('vegCount').textContent = vegCount;
+      document.getElementById('carpoolNeed').textContent = carpoolNeed;
+      document.getElementById('carpoolOffer').textContent = carpoolOffer;
+    }
+    
+    // Render registrations table
+    function renderRegistrations() {
+      const tbody = document.getElementById('regTableBody');
+      const regs = allData.registrations || [];
+      
+      if (regs.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="10" style="text-align: center; padding: 32px; color: var(--cht-text-secondary);">尚無報名資料</td></tr>';
+        return;
+      }
+      
+      tbody.innerHTML = regs.map((reg, index) => {
+        const mealType = reg['餐點'] || '';
+        const mealBadge = mealType === '葷食' ? 'badge-meat' : 
+                         mealType === '素食' ? 'badge-veg' : 'badge-special';
+        
+        const carpool = reg['共乘'] || '';
+        const carpoolBadge = carpool === '需要' ? 'badge-carpool-yes' :
+                            carpool === '可提供' ? 'badge-carpool-offer' : 'badge-carpool-no';
+        
+        const timestamp = reg['時間戳記'] ? new Date(reg['時間戳記']).toLocaleString('zh-TW') : '';
+        
+        return `
+          <tr>
+            <td>${index + 1}</td>
+            <td><strong>${reg['姓名'] || ''}</strong></td>
+            <td>${reg['部門'] || ''}</td>
+            <td>${reg['電話'] || ''}</td>
+            <td>${reg['Email'] || ''}</td>
+            <td><span class="badge ${mealBadge}">${mealType}</span></td>
+            <td><span class="badge ${carpoolBadge}">${carpool}</span></td>
+            <td>${reg['禮品選擇'] || '-'}</td>
+            <td>${reg['備註'] || '-'}</td>
+            <td>${timestamp}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+    
+    // Render messages
+    function renderMessages() {
+      const container = document.getElementById('messageList');
+      const msgs = allData.messages || [];
+      
+      if (msgs.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">💌</div>
+            <p>尚無祝福留言</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = msgs.map((msg, index) => {
+        const timestamp = msg['時間戳記'] ? new Date(msg['時間戳記']).toLocaleString('zh-TW') : '';
+        const files = msg['附件檔名'] || '';
+        const filesHtml = files ? `<div class="message-files">📎 附件：${files}</div>` : '';
+        
+        return `
+          <div class="message-item">
+            <div class="message-header">
+              <div class="message-author">${msg['姓名'] || ''}</div>
+              <div class="message-time">${timestamp}</div>
+            </div>
+            <div class="message-content">${msg['留言內容'] || ''}</div>
+            ${filesHtml}
+          </div>
+        `;
+      }).join('');
+    }
+    
+    // Render gift statistics
+    function renderGiftStats() {
+      const container = document.getElementById('giftChart');
+      const votes = allData.giftVotes || {};
+      const total = Object.values(votes).reduce((a, b) => a + b, 0);
+      
+      if (total === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">🎁</div>
+            <p>尚無禮品選擇資料</p>
+          </div>
+        `;
+      } else {
+        container.innerHTML = Object.entries(votes)
+          .filter(([gift, count]) => count > 0)
+          .map(([gift, count]) => {
+            const percentage = total > 0 ? (count / total * 100).toFixed(1) : 0;
+            return `
+              <div class="gift-item">
+                <div class="gift-label">
+                  <span>${gift}</span>
+                  <span>${count} 票 (${percentage}%)</span>
+                </div>
+                <div class="gift-bar">
+                  <div class="gift-bar-fill" style="width: ${percentage}%">
+                    ${count}
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('');
+      }
+      
+      // Show gift suggestions
+      const suggestionsContainer = document.getElementById('giftSuggestions');
+      const regs = allData.registrations || [];
+      const suggestions = regs
+        .filter(r => r['禮品建議'] && r['禮品建議'].trim())
+        .map(r => ({ name: r['姓名'], suggestion: r['禮品建議'] }));
+      
+      if (suggestions.length === 0) {
+        suggestionsContainer.innerHTML = '<p style="color: var(--cht-text-secondary);">尚無其他禮品建議</p>';
+      } else {
+        suggestionsContainer.innerHTML = suggestions.map(s => 
+          `<div class="message-item">
+            <div class="message-author">${s.name}</div>
+            <div class="message-content">${s.suggestion}</div>
+          </div>`
+        ).join('');
+      }
+    }
+    
+    // Export to CSV
+    function exportToCSV(type) {
+      let csv = '';
+      let filename = '';
+      
+      if (type === 'registrations') {
+        csv = '編號,姓名,部門,電話,Email,餐點,共乘,禮品選擇,禮品建議,備註,報名時間\n';
+        const regs = allData.registrations || [];
+        regs.forEach((reg, index) => {
+          const timestamp = reg['時間戳記'] ? new Date(reg['時間戳記']).toLocaleString('zh-TW') : '';
+          csv += `${index + 1},"${reg['姓名'] || ''}","${reg['部門'] || ''}","${reg['電話'] || ''}","${reg['Email'] || ''}","${reg['餐點'] || ''}","${reg['共乘'] || ''}","${reg['禮品選擇'] || ''}","${reg['禮品建議'] || ''}","${reg['備註'] || ''}","${timestamp}"\n`;
+        });
+        filename = '退休歡送會報名資料.csv';
+      } else if (type === 'messages') {
+        csv = '編號,姓名,留言內容,附件,日期\n';
+        const msgs = allData.messages || [];
+        msgs.forEach((msg, index) => {
+          const timestamp = msg['時間戳記'] ? new Date(msg['時間戳記']).toLocaleString('zh-TW') : '';
+          const files = msg['附件檔名'] || '';
+          const content = (msg['留言內容'] || '').replace(/"/g, '""');
+          csv += `${index + 1},"${msg['姓名'] || ''}","${content}","${files}","${timestamp}"\n`;
+        });
+        filename = '退休歡送會祝福留言.csv';
+      }
+      
+      // Add BOM for Excel to recognize UTF-8
+      const BOM = '\uFEFF';
+      const blob = new Blob([BOM + csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+    }
+    
+    // Initialize - hide loading overlay immediately
+    document.getElementById('loadingOverlay').style.display = 'none';
+  </script>
+</body>
+</html>

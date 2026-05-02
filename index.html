@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>蔣惠軫高級管理師 退休歡送會 | 中華電信彰化營運處</title>
+  <link rel="stylesheet" href="cht-design-system.css">
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    /* 請在這裡設定您的 Google Apps Script 部署網址 */
+    :root {
+      --google-script-url: 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+    }
+  </style>
+  <style>
+    /* Tweakable defaults */
+    :root {
+      --tweak-bg-color: /*EDITMODE-BEGIN*/{
+        "value": "#f8f9fa",
+        "backgroundColor": "#F8F9FA",
+        "textColor": "#212529",
+        "headingSize": 60,
+        "bodySize": 16
+      }/*EDITMODE-END*/;
+      --tweak-text-color: /*EDITMODE-BEGIN*/{"value": "#212529"}/*EDITMODE-END*/;
+      --tweak-primary-color: /*EDITMODE-BEGIN*/{"value": "#F5A623"}/*EDITMODE-END*/;
+      --tweak-font-size: /*EDITMODE-BEGIN*/{"value": 16}/*EDITMODE-END*/;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--cht-font-primary);
+      background-color: var(--tweak-bg-color);
+      color: var(--tweak-text-color);
+      line-height: var(--cht-leading-normal);
+      font-size: calc(var(--tweak-font-size) * 1px);
+    }
+    
+    /* Hero Section with Diagonal Stripes */
+    .hero {
+      background: linear-gradient(135deg, 
+        var(--cht-innovation-light) 0%, 
+        var(--cht-innovation-light) 15%,
+        var(--cht-innovation-orange) 15%, 
+        var(--cht-innovation-orange) 30%,
+        var(--cht-trust-blue) 30%, 
+        var(--cht-trust-blue) 50%,
+        var(--cht-accountability-light) 50%, 
+        var(--cht-accountability-light) 70%,
+        var(--cht-accountability-green) 70%, 
+        var(--cht-accountability-green) 100%);
+      color: white;
+      padding: 64px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.15);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      max-width: 200px;
+      margin-bottom: 32px;
+      filter: brightness(0) invert(1);
+    }
+    
+    .hero h1 {
+      font-size: clamp(32px, 6vw, var(--tweak-heading-size));
+      font-weight: var(--cht-font-bold);
+      margin-bottom: 16px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+    
+    .hero .subtitle {
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: var(--cht-font-medium);
+      margin-bottom: 12px;
+    }
+    
+    .hero .info {
+      font-size: clamp(16px, 2.5vw, 20px);
+      margin-bottom: 8px;
+      opacity: 0.95;
+    }
+    
+    .mascot-hero {
+      max-width: 180px;
+      margin: 24px auto 0;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    
+    /* Section Styles */
+    .section {
+      background: var(--section-bg-color, white);
+      border-radius: var(--cht-radius-xl);
+      padding: 40px;
+      margin-bottom: 32px;
+      box-shadow: var(--cht-shadow-md);
+    }
+    
+    .section-title {
+      font-size: var(--cht-text-3xl);
+      font-weight: var(--cht-font-bold);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 4px solid var(--cht-innovation-orange);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .section-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+    
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 24px;
+    }
+    
+    .form-label {
+      display: block;
+      font-size: var(--cht-text-lg);
+      font-weight: var(--cht-font-semibold);
+      margin-bottom: 8px;
+      color: var(--cht-text-primary);
+    }
+    
+    .form-label .required {
+      color: #dc3545;
+      margin-left: 4px;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: var(--tweak-body-size);
+      font-family: var(--cht-font-primary);
+      border: 2px solid var(--cht-border-light);
+      border-radius: var(--cht-radius-md);
+      transition: all 0.3s;
+    }
+    
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--cht-trust-blue);
+      box-shadow: 0 0 0 3px rgba(30, 136, 199, 0.1);
+    }
+    
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    /* Radio & Checkbox Groups */
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .radio-option,
+    .checkbox-option {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border: 2px solid var(--cht-border-light);
+      border-radius: var(--cht-radius-md);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .radio-option:hover,
+    .checkbox-option:hover {
+      border-color: var(--cht-trust-blue);
+      background-color: rgba(30, 136, 199, 0.05);
+    }
+    
+    .radio-option input,
+    .checkbox-option input {
+      margin-right: 12px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    
+    .radio-option.selected,
+    .checkbox-option.selected {
+      border-color: var(--cht-trust-blue);
+      background-color: rgba(30, 136, 199, 0.1);
+    }
+    
+    /* Gift Cards */
+    .gift-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .gift-card {
+      border: 3px solid var(--cht-border-light);
+      border-radius: var(--cht-radius-lg);
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    
+    .gift-card:hover {
+      border-color: var(--cht-innovation-orange);
+      transform: translateY(-4px);
+      box-shadow: var(--cht-shadow-lg);
+    }
+    
+    .gift-card.selected {
+      border-color: var(--cht-innovation-orange);
+      background: linear-gradient(135deg, var(--cht-innovation-light), var(--cht-innovation-orange));
+      color: white;
+    }
+
+    .gift-card.selected .gift-vote-bar-fill {
+      background: rgba(255,255,255,0.5);
+    }
+
+    .gift-card.selected .gift-vote-count {
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .gift-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    
+    .gift-name {
+      font-size: var(--cht-text-xl);
+      font-weight: var(--cht-font-bold);
+      margin-bottom: 8px;
+    }
+
+    /* Gift vote bar */
+    .gift-vote-wrap {
+      margin-top: 14px;
+    }
+
+    .gift-vote-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .gift-vote-count {
+      font-weight: 700;
+      color: var(--cht-innovation-orange);
+      font-size: 14px;
+    }
+
+    .gift-vote-bar-bg {
+      background: rgba(0,0,0,0.08);
+      border-radius: 99px;
+      height: 8px;
+      overflow: hidden;
+    }
+
+    .gift-vote-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--cht-innovation-orange), var(--cht-innovation-dark, #c97a00));
+      transition: width 0.7s cubic-bezier(0.4,0,0.2,1);
+      width: 0%;
+    }
+    
+    /* File Upload */
+    .file-upload {
+      border: 2px dashed var(--cht-border-medium);
+      border-radius: var(--cht-radius-md);
+      padding: 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .file-upload:hover {
+      border-color: var(--cht-trust-blue);
+      background-color: rgba(30, 136, 199, 0.05);
+    }
+    
+    .file-upload-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      color: var(--cht-text-secondary);
+    }
+    
+    .file-input {
+      display: none;
+    }
+    
+    .uploaded-files {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    .uploaded-file {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background-color: var(--cht-gray-100);
+      border-radius: var(--cht-radius-md);
+      font-size: var(--cht-text-sm);
+    }
+    
+    .remove-file {
+      cursor: pointer;
+      color: #dc3545;
+      font-weight: bold;
+    }
+    
+    /* Message Wall */
+    .message-wall {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+    }
+    
+    .message-card {
+      background: linear-gradient(135deg, var(--cht-gray-50), white);
+      border-left: 4px solid var(--cht-trust-blue);
+      border-radius: var(--cht-radius-md);
+      padding: 20px;
+      box-shadow: var(--cht-shadow-sm);
+    }
+    
+    .message-author {
+      font-weight: var(--cht-font-bold);
+      color: var(--cht-trust-blue);
+      margin-bottom: 8px;
+    }
+    
+    .message-content {
+      color: var(--cht-text-primary);
+      line-height: 1.6;
+    }
+    
+    .message-time {
+      font-size: var(--cht-text-xs);
+      color: var(--cht-text-secondary);
+      margin-top: 8px;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      font-size: var(--cht-text-lg);
+      font-weight: var(--cht-font-semibold);
+      font-family: var(--cht-font-primary);
+      border: none;
+      border-radius: var(--cht-radius-md);
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cht-innovation-orange), var(--cht-innovation-dark));
+      color: white;
+      box-shadow: var(--cht-shadow-md);
+    }
+    
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: var(--cht-shadow-lg);
+    }
+    
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--cht-trust-blue), var(--cht-trust-dark));
+      color: white;
+      box-shadow: var(--cht-shadow-md);
+    }
+    
+    .btn-secondary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: var(--cht-shadow-lg);
+    }
+    
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .btn-block {
+      width: 100%;
+    }
+    
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    
+    .stat-card {
+      background: linear-gradient(135deg, var(--cht-accountability-light), var(--cht-accountability-green));
+      color: white;
+      padding: 24px;
+      border-radius: var(--cht-radius-lg);
+      text-align: center;
+      box-shadow: var(--cht-shadow-md);
+    }
+    
+    .stat-number {
+      font-size: var(--cht-text-5xl);
+      font-weight: var(--cht-font-bold);
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-size: var(--cht-text-base);
+      opacity: 0.9;
+    }
+    
+    /* Success Message */
+    .success-message {
+      background: linear-gradient(135deg, var(--cht-accountability-light), var(--cht-accountability-green));
+      color: white;
+      padding: 24px;
+      border-radius: var(--cht-radius-lg);
+      text-align: center;
+      margin-bottom: 24px;
+      display: none;
+    }
+    
+    .success-message.show {
+      display: block;
+      animation: slideDown 0.5s ease;
+    }
+    
+    .error-message {
+      background: linear-gradient(135deg, #fee2e2, #dc2626);
+      color: white;
+      padding: 24px;
+      border-radius: var(--cht-radius-lg);
+      text-align: center;
+      margin-bottom: 24px;
+      display: none;
+    }
+    
+    .error-message.show {
+      display: block;
+      animation: slideDown 0.5s ease;
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Loading Spinner */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-left: 8px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Footer */
+    .footer {
+      background: linear-gradient(135deg, var(--cht-blue-primary), var(--cht-blue-logo));
+      color: white;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .contact-info {
+      margin-top: 16px;
+      font-size: var(--cht-text-base);
+    }
+    
+    /* Config Notice */
+    .config-notice {
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      border-radius: var(--cht-radius-lg);
+      padding: 24px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    
+    .config-notice h3 {
+      color: #92400e;
+      margin-bottom: 12px;
+    }
+    
+    .config-notice p {
+      color: #78350f;
+      margin-bottom: 8px;
+    }
+    
+    .config-notice code {
+      background: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #dc2626;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section {
+        padding: 24px;
+      }
+      
+      .hero {
+        padding: 48px 20px;
+      }
+      
+      .container {
+        padding: 32px 16px;
+      }
+      
+      .gift-cards {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <img src="assets/logo_horizontal.png" alt="中華電信" class="logo">
+      <h1>感謝有您 · 璀璨退休</h1>
+      <div class="subtitle">蔣惠軫 高級管理師 榮退歡送會</div>
+      <div class="info">📅 2026年6月24日（星期三）中午12:00</div>
+      <div class="info">📍 <a href="https://maps.app.goo.gl/D5snzDuTtdWkqHEG7" target="_blank" style="color: white; text-decoration: underline;">農食憶料理坊 · 彰化市南瑤路259號</a></div>
+      <div class="info">✨ 服務45年 · 會計專業 · 貢獻卓著</div>
+      <img src="assets/mascot_flower.png" alt="mascot" class="mascot-hero">
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Configuration Notice -->
+    <div class="config-notice" id="configNotice">
+      <h3>⚙️ 設定提醒</h3>
+      <p>請先完成 Google Sheets 設定，並在程式碼中更新 <code>GOOGLE_SCRIPT_URL</code></p>
+      <p>詳細步驟請參考：<strong>Google Sheets 設定步驟.md</strong></p>
+    </div>
+
+    <!-- Success/Error Messages -->
+    <div class="success-message" id="successMessage"></div>
+    <div class="error-message" id="errorMessage"></div>
+
+    <!-- Registration Stats -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number" id="totalRegistrations">-</div>
+        <div class="stat-label">已報名人數</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="totalMessages">-</div>
+        <div class="stat-label">祝福留言數</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="daysRemaining">27</div>
+        <div class="stat-label">距離報名截止(天)</div>
+      </div>
+      <div class="stat-card" style="background: linear-gradient(135deg, var(--cht-innovation-light), var(--cht-innovation-orange));">
+        <div style="font-size: 32px; margin-bottom: 4px;" id="topGiftIcon">🎁</div>
+        <div class="stat-number" style="font-size: var(--cht-text-2xl);" id="topGiftName">統計中</div>
+        <div class="stat-label">目前禮品領先</div>
+      </div>
+    </div>
+
+    <!-- Registration Form Section (含禮品挑選) -->
+    <div class="section">
+      <h2 class="section-title">
+        歡送餐宴報名
+      </h2>
+      <p style="margin-bottom: 24px; color: var(--cht-text-secondary); font-size: var(--cht-text-base);">
+        📅 <strong>報名截止日期：2026年6月18日</strong><br>
+        📍 <strong>地點：</strong><a href="https://maps.app.goo.gl/D5snzDuTtdWkqHEG7" target="_blank" style="color: var(--cht-trust-blue); text-decoration: underline;">農食憶料理坊（點擊查看地圖）</a><br>
+        讓我們一起為惠軫姊送上最溫暖的祝福！
+      </p>
+
+      <div class="form-group">
+        <label class="form-label">姓名 <span class="required">*</span></label>
+        <input type="text" class="form-input" id="regName" placeholder="請輸入您的姓名" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">部門/單位 <span class="required">*</span></label>
+        <input type="text" class="form-input" id="regDept" placeholder="請輸入您的部門" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">聯絡電話 <span class="required">*</span></label>
+        <input type="tel" class="form-input" id="regPhone" placeholder="請輸入您的電話" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email <span class="required">*</span></label>
+        <input type="email" class="form-input" id="regEmail" placeholder="請輸入您的Email" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">餐點選擇 <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="mealType" value="葷食" required>
+            <span>葷食</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="mealType" value="素食">
+            <span>素食</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="mealType" value="特殊需求">
+            <span>特殊需求（請在備註欄說明）</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">是否需要共乘安排</label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="carpool" value="需要">
+            <span>需要（我們會協助安排）</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="carpool" value="不需要" checked>
+            <span>不需要，我會自行前往</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="carpool" value="可提供">
+            <span>可提供載送</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 可提供座位數（選「可提供」才顯示） -->
+      <div id="carpoolSeatsGroup" style="display:none; margin-top: -8px; margin-bottom: 24px;">
+        <label class="form-label">可提供座位數</label>
+        <input type="number" class="form-input" id="carpoolSeats" min="1" max="8" placeholder="請輸入可載送的人數">
+      </div>
+
+      <!-- 參與致贈退休紀念品 -->
+      <div class="form-group">
+        <label class="form-label">參與致贈退休紀念品 <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="joinGift" value="是" required>
+            <span>是，我願意參與致贈</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="joinGift" value="否">
+            <span>否，不參與致贈</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 禮品挑選（選「是」才顯示） -->
+      <div id="giftSelectionGroup" style="display:none; border-top: 1px solid var(--cht-border-light); padding-top: 24px; margin-top: 8px;">
+        <h3 style="font-size: var(--cht-text-xl); font-weight: var(--cht-font-bold); margin-bottom: 12px; color: var(--cht-innovation-orange);">
+          <img src="assets/innovation_circle_icon.png" alt="禮品" style="width:28px; height:28px; vertical-align:middle; margin-right:8px;">
+          退休紀念禮品挑選
+        </h3>
+        <p style="margin-bottom: 20px; color: var(--cht-text-secondary); font-size: var(--cht-text-base);">
+          為惠軫姊選擇一份退休紀念禮品，表達我們的感謝與祝福
+        </p>
+        <div class="gift-cards">
+          <div class="gift-card" data-gift="高級溫控手沖壺">
+            <div class="gift-icon">☕</div>
+            <div class="gift-name">高級溫控手沖壺</div>
+            <p>享受退休後的悠閒咖啡時光</p>
+            <div class="gift-vote-wrap">
+              <div class="gift-vote-header">
+                <span style="font-size:12px; color:#666;">目前票數</span>
+                <span class="gift-vote-count" data-gift-name="高級溫控手沖壺">0 票</span>
+              </div>
+              <div class="gift-vote-bar-bg">
+                <div class="gift-vote-bar-fill" data-gift-bar="高級溫控手沖壺" style="width:0%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="gift-card" data-gift="智慧手錶">
+            <div class="gift-icon">⌚</div>
+            <div class="gift-name">智慧手錶</div>
+            <p>健康管理好幫手</p>
+            <div class="gift-vote-wrap">
+              <div class="gift-vote-header">
+                <span style="font-size:12px; color:#666;">目前票數</span>
+                <span class="gift-vote-count" data-gift-name="智慧手錶">0 票</span>
+              </div>
+              <div class="gift-vote-bar-bg">
+                <div class="gift-vote-bar-fill" data-gift-bar="智慧手錶" style="width:0%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="gift-card" data-gift="平板電腦">
+            <div class="gift-icon">📱</div>
+            <div class="gift-name">平板電腦</div>
+            <p>休閒娛樂與學習良伴</p>
+            <div class="gift-vote-wrap">
+              <div class="gift-vote-header">
+                <span style="font-size:12px; color:#666;">目前票數</span>
+                <span class="gift-vote-count" data-gift-name="平板電腦">0 票</span>
+              </div>
+              <div class="gift-vote-bar-bg">
+                <div class="gift-vote-bar-fill" data-gift-bar="平板電腦" style="width:0%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 自訂禮物建議 -->
+        <div style="background: #fff8e1; border: 2px solid #ffd54f; border-radius: var(--cht-radius-md); padding: 20px; margin-top: 20px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <span style="font-size: 24px;">🎁</span>
+            <h4 style="font-size: var(--cht-text-lg); font-weight: var(--cht-font-bold); margin: 0; color: var(--cht-innovation-orange);">自訂禮物建議</h4>
+          </div>
+          
+          <!-- 顯示自訂禮物統計 -->
+          <div id="customGiftStats" style="margin-bottom: 16px; display: none;">
+            <div style="font-size: var(--cht-text-sm); color: #666; margin-bottom: 8px;">目前自訂建議：</div>
+            <div id="customGiftList" style="display: flex; flex-direction: column; gap: 8px;"></div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label">或自行建議禮物</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="text" class="form-input" id="giftSuggestion" placeholder="如果您有其他禮品建議，請在此填寫" style="flex: 1;">
+              <button type="button" class="btn btn-primary" id="addCustomGift" style="padding: 12px 24px; white-space: nowrap;">自訂</button>
+            </div>
+            <div style="font-size: var(--cht-text-xs); color: #666; margin-top: 6px;">💡 填寫自訂禮物後點擊「自訂」按鈕，該選項將計入您的投票</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top: 24px;">
+        <label class="form-label">備註</label>
+        <textarea class="form-textarea" id="regNotes" placeholder="特殊飲食需求、共乘資訊或其他需要說明的事項"></textarea>
+      </div>
+
+      <button class="btn btn-secondary btn-block" id="submitRegistration">確認報名</button>
+    </div>
+
+    <!-- Blessing Message Section -->
+    <div class="section">
+      <h2 class="section-title">
+        <img src="assets/trust_circle_icon.png" alt="留言" class="section-icon">
+        感性祝福留言
+      </h2>
+      <p style="margin-bottom: 24px; color: var(--cht-text-secondary); font-size: var(--cht-text-base);">
+        請留下您對惠軫姊的祝福與感謝，這些珍貴的回憶將讓她倍感溫馨
+      </p>
+
+      <div class="form-group">
+        <label class="form-label">您的姓名 <span class="required">*</span></label>
+        <input type="text" class="form-input" id="messageName" placeholder="請輸入您的姓名" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">祝福留言 <span class="required">*</span></label>
+        <textarea class="form-textarea" id="messageContent" placeholder="分享您與惠軫姊的回憶、感謝的話語，或對她退休生活的祝福..." required></textarea>
+      </div>
+
+      <button class="btn btn-primary" id="submitMessage">送出祝福留言</button>
+    </div>
+
+    <!-- Message Wall -->
+    <div class="section">
+      <h2 class="section-title">祝福留言牆</h2>
+      <p style="margin-bottom: 24px; color: var(--cht-text-secondary); font-size: var(--cht-text-base);">
+        同仁們的真摯祝福
+      </p>
+      <div class="message-wall" id="messageWall">
+        <div style="text-align: center; padding: 48px; color: var(--cht-text-secondary); grid-column: 1 / -1;">
+          <div style="font-size: 48px; margin-bottom: 16px;">⏳</div>
+          <p>載入留言中...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-content">
+      <h3 style="margin-bottom: 16px;">中華電信彰化營運處</h3>
+      <p>如有任何問題，請聯繫</p>
+      <div class="contact-info">
+        <div>聯絡人：黃志良</div>
+        <div>電話：087200372</div>
+        <div>Email：argus911@cht.com.tw</div>
+        <div style="margin-top: 16px;">
+          <a href="admin.html" style="color: white; text-decoration: underline; opacity: 0.7;" target="_blank">🔐 管理後台</a>
+        </div>
+      </div>
+      <p style="margin-top: 24px; opacity: 0.8; font-size: var(--cht-text-sm);">
+        © 2026 中華電信股份有限公司 彰化營運處
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // ✅ Google Apps Script 部署網址（已更新至最新版本）
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBt6FrMoIAcMGGCmZPI7AmuSHg6483T_vUG4Znnkc-kdP-gc4-u_3zXdK7OtzvGTYglw/exec';
+    
+    // Check if configured
+    if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+      console.warn('請先設定 GOOGLE_SCRIPT_URL');
+    } else {
+      document.getElementById('configNotice').style.display = 'none';
+    }
+    
+    // Calculate days remaining
+    function updateDaysRemaining() {
+      const deadline = new Date('2026-06-18');
+      const today = new Date();
+      const daysRemaining = Math.max(0, Math.ceil((deadline - today) / (1000 * 60 * 60 * 24)));
+      document.getElementById('daysRemaining').textContent = daysRemaining;
+    }
+    
+    // Show message
+    function showMessage(type, message) {
+      const successEl = document.getElementById('successMessage');
+      const errorEl = document.getElementById('errorMessage');
+      
+      successEl.classList.remove('show');
+      errorEl.classList.remove('show');
+      
+      if (type === 'success') {
+        successEl.textContent = message;
+        successEl.classList.add('show');
+        setTimeout(() => successEl.classList.remove('show'), 5000);
+      } else {
+        errorEl.textContent = message;
+        errorEl.classList.add('show');
+        setTimeout(() => errorEl.classList.remove('show'), 8000);
+      }
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // Load data from Google Sheets using JSONP (bypasses CORS entirely)
+    function loadData() {
+      // Clean up any previous JSONP script tags
+      const oldScript = document.getElementById('jsonp-loader');
+      if (oldScript) oldScript.remove();
+
+      const callbackName = 'gasDataCallback';
+
+      // Define the global callback function
+      window[callbackName] = function(data) {
+        try {
+          if (data && data.success && data.data) {
+            updateStats(data.data);
+            renderMessages(data.data.messages);
+          }
+        } catch (error) {
+          console.error('載入資料失敗', error);
+        }
+        // Clean up
+        delete window[callbackName];
+        const s = document.getElementById('jsonp-loader');
+        if (s) s.remove();
+      };
+
+      const script = document.createElement('script');
+      script.id = 'jsonp-loader';
+      script.src = GOOGLE_SCRIPT_URL + '?callback=' + callbackName + '&t=' + Date.now();
+      script.onerror = function() {
+        console.warn('JSONP 載入失敗，可能是 GAS 尚未支援 callback 參數');
+        delete window[callbackName];
+      };
+      document.body.appendChild(script);
+    }
+    
+    // Gift vote config (order must match gift cards)
+    const GIFT_LIST = [
+      { name: '高級溫控手沖壺', icon: '☕' },
+      { name: '智慧手錶',       icon: '⌚' },
+      { name: '平板電腦',       icon: '📱' }
+    ];
+
+    // Update gift vote bars
+    // ✅ [修正 v2] 優先使用 GAS 禮品統計工作表的預計算票數，備用才從報名資料逐筆計算
+    function updateGiftVotes(giftVotes, registrations) {
+      const votes = {};
+      GIFT_LIST.forEach(g => { votes[g.name] = 0; });
+
+      // 判斷是否有預計算資料（來自禮品統計工作表）
+      const hasAggregated = giftVotes && typeof giftVotes === 'object' && Object.keys(giftVotes).length > 0;
+
+      if (hasAggregated) {
+        // ✅ 直接使用 Google Sheet 禮品統計工作表的票數
+        GIFT_LIST.forEach(g => {
+          votes[g.name] = Number(giftVotes[g.name]) || 0;
+        });
+      }
+
+      // 從報名資料取得自訂禮品票數（預設禮品在無預計算時也從此計算）
+      const customGifts = {};
+
+      (registrations || []).forEach(row => {
+        const gift = row['禮品選擇'] || row['gift'] || '';
+        const customSuggestion = row['其他建議禮品'] || row['giftSuggestion'] || '';
+
+        // 無預計算資料時，從報名資料計算預設禮品
+        if (!hasAggregated && votes.hasOwnProperty(gift)) {
+          votes[gift]++;
+        }
+        // 自訂禮品從報名資料計算
+        if (customSuggestion && customSuggestion.trim()) {
+          const customKey = customSuggestion.trim();
+          customGifts[customKey] = (customGifts[customKey] || 0) + 1;
+        }
+      });
+
+      // Calculate total votes (predefined + custom)
+      const predefinedTotal = Object.values(votes).reduce((a, b) => a + b, 0);
+      const customTotal = Object.values(customGifts).reduce((a, b) => a + b, 0);
+      const total = predefinedTotal + customTotal;
+
+      // Update predefined gift cards
+      GIFT_LIST.forEach((g) => {
+        const count = votes[g.name];
+        const pct   = total > 0 ? Math.round((count / total) * 100) : 0;
+
+        const countEl = document.querySelector(`[data-gift-name="${g.name}"]`);
+        const barEl   = document.querySelector(`[data-gift-bar="${g.name}"]`);
+        
+        if (countEl) countEl.textContent = `${count} 票`;
+        if (barEl)   barEl.style.width   = `${pct}%`;
+      });
+
+      // Display custom gift stats
+      const customStatsContainer = document.getElementById('customGiftStats');
+      const customGiftListEl = document.getElementById('customGiftList');
+      
+      if (Object.keys(customGifts).length > 0) {
+        customStatsContainer.style.display = 'block';
+        customGiftListEl.innerHTML = Object.entries(customGifts)
+          .sort((a, b) => b[1] - a[1])
+          .map(([name, count]) => {
+            const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+            return `
+              <div style="background: white; padding: 12px; border-radius: 8px; border-left: 3px solid var(--cht-innovation-orange);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <span style="font-weight: 600; color: var(--cht-text-primary);">${name}</span>
+                  <span style="font-weight: 700; color: var(--cht-innovation-orange);">${count} 票</span>
+                </div>
+                <div style="background: rgba(0,0,0,0.08); border-radius: 99px; height: 6px; overflow: hidden;">
+                  <div style="height: 100%; background: linear-gradient(90deg, var(--cht-innovation-orange), var(--cht-innovation-dark, #c97a00)); width: ${pct}%; transition: width 0.7s cubic-bezier(0.4,0,0.2,1);"></div>
+                </div>
+              </div>
+            `;
+          }).join('');
+      } else {
+        customStatsContainer.style.display = 'none';
+      }
+
+      // Update top gift stat card (include custom gifts)
+      const allGifts = { ...votes, ...customGifts };
+      const sortedGifts = Object.entries(allGifts).sort((a, b) => b[1] - a[1]);
+      
+      if (sortedGifts.length > 0 && sortedGifts[0][1] > 0) {
+        const topGiftName = sortedGifts[0][0];
+        const topGift = GIFT_LIST.find(g => g.name === topGiftName);
+        document.getElementById('topGiftIcon').textContent = topGift ? topGift.icon : '🎁';
+        document.getElementById('topGiftName').textContent = topGiftName;
+      } else {
+        document.getElementById('topGiftIcon').textContent = '🎁';
+        document.getElementById('topGiftName').textContent = '統計中';
+      }
+    }
+
+    // Update statistics
+    function updateStats(data) {
+      document.getElementById('totalRegistrations').textContent = data.registrations?.length || 0;
+      document.getElementById('totalMessages').textContent = data.messages?.length || 0;
+      // ✅ [修正 v2] 傳入 giftVotes（禮品統計工作表）和 registrations 兩個來源
+      updateGiftVotes(data.giftVotes, data.registrations);
+    }
+    
+    // Render messages
+    function renderMessages(messages) {
+      const container = document.getElementById('messageWall');
+      
+      if (!messages || messages.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 48px; color: var(--cht-text-secondary); grid-column: 1 / -1;">
+            <div style="font-size: 48px; margin-bottom: 16px;">💌</div>
+            <p>尚無祝福留言，成為第一個留言的人吧！</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = messages.map(msg => {
+        const timestamp = msg['時間戳記'] ? new Date(msg['時間戳記']).toLocaleDateString('zh-TW') : '';
+        const attachment = msg['附件檔名'] || '';
+
+        // 若是 Google Drive 圖片連結則顯示縮圖，否則顯示檔名
+        let filesHtml = '';
+        if (attachment) {
+          if (attachment.startsWith('https://drive.google.com')) {
+            filesHtml = `
+              <div style="margin-top:10px;">
+                <img src="${attachment}" alt="附件照片"
+                  style="max-width:100%; max-height:200px; border-radius:8px; object-fit:cover; cursor:pointer;"
+                  onclick="window.open('${attachment}','_blank')"
+                  onerror="this.outerHTML='<div style=\\'font-size:var(--cht-text-sm);color:var(--cht-text-secondary);\\'>📎 照片載入失敗</div>'">
+              </div>`;
+          } else {
+            filesHtml = `<div style="margin-top:8px; font-size:var(--cht-text-sm); color:var(--cht-text-secondary);">📎 ${attachment}</div>`;
+          }
+        }
+
+        return `
+          <div class="message-card">
+            <div class="message-author">${msg['姓名'] || ''}</div>
+            <div class="message-content">${msg['留言內容'] || ''}</div>
+            ${filesHtml}
+            <div class="message-time">${timestamp}</div>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    // Gift card selection
+    document.querySelectorAll('.gift-card').forEach(card => {
+      card.addEventListener('click', function() {
+        document.querySelectorAll('.gift-card').forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+        // Clear custom gift input when selecting predefined gift
+        document.getElementById('giftSuggestion').value = '';
+      });
+    });
+
+    // Custom gift button
+    let selectedCustomGift = '';
+    document.getElementById('addCustomGift').addEventListener('click', function() {
+      const customGift = document.getElementById('giftSuggestion').value.trim();
+      if (!customGift) {
+        showMessage('error', '❌ 請先填寫自訂禮物建議！');
+        return;
+      }
+      
+      // Deselect all predefined gifts
+      document.querySelectorAll('.gift-card').forEach(c => c.classList.remove('selected'));
+      
+      // Store custom gift selection
+      selectedCustomGift = customGift;
+      
+      showMessage('success', `✓ 已選擇自訂禮物：${customGift}`);
+    });
+
+    // Radio option styling (全部 radio-option 通用)
+    document.querySelectorAll('.radio-option input').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const group = this.closest('.radio-group');
+        group.querySelectorAll('.radio-option').forEach(opt => opt.classList.remove('selected'));
+        if (this.checked) this.closest('.radio-option').classList.add('selected');
+      });
+    });
+
+    // 「參與致贈退休紀念品」切換禮品選擇區塊顯示
+    document.querySelectorAll('input[name="joinGift"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const giftGroup = document.getElementById('giftSelectionGroup');
+        giftGroup.style.display = (this.value === '是') ? 'block' : 'none';
+        // 選「否」時清除禮品選取
+        if (this.value === '否') {
+          document.querySelectorAll('.gift-card').forEach(c => c.classList.remove('selected'));
+          document.getElementById('giftSuggestion').value = '';
+          selectedCustomGift = '';
+        }
+      });
+    });
+
+    // 共乘安排切換座位數欄位
+    document.querySelectorAll('input[name="carpool"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const seatsGroup = document.getElementById('carpoolSeatsGroup');
+        seatsGroup.style.display = (this.value === '可提供') ? 'block' : 'none';
+        // 選非「可提供」時清空座位數
+        if (this.value !== '可提供') {
+          document.getElementById('carpoolSeats').value = '';
+        }
+      });
+    });
+
+    // Submit message
+    document.getElementById('submitMessage').addEventListener('click', async function() {
+      const btn = this;
+      const name    = document.getElementById('messageName').value.trim();
+      const content = document.getElementById('messageContent').value.trim();
+
+      if (!name || !content) {
+        showMessage('error', '❌ 請填寫姓名和留言內容！');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '送出中...<span class="loading"></span>';
+
+      try {
+        // ✅ [修正 v2] 改用 JSON 字串格式（符合 GAS 的 JSON.parse 解析）
+        const payload = JSON.stringify({
+          action:  'submitMessage',
+          author:  name,
+          content: content
+        });
+        await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: payload });
+
+        showMessage('success', '✓ 祝福留言已送出！感謝您的祝福！');
+        document.getElementById('messageName').value  = '';
+        document.getElementById('messageContent').value = '';
+        setTimeout(loadData, 1000);
+      } catch (error) {
+        showMessage('error', '❌ 送出失敗：' + error.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '送出祝福留言';
+      }
+    });
+
+    // Submit registration
+    document.getElementById('submitRegistration').addEventListener('click', async function() {
+      const btn      = this;
+      const name     = document.getElementById('regName').value.trim();
+      const dept     = document.getElementById('regDept').value.trim();
+      const phone    = document.getElementById('regPhone').value.trim();
+      const email    = document.getElementById('regEmail').value.trim();
+      const mealType = document.querySelector('input[name="mealType"]:checked');
+      const carpool  = document.querySelector('input[name="carpool"]:checked');
+      const joinGift = document.querySelector('input[name="joinGift"]:checked');
+
+      if (!name || !dept || !phone || !email || !mealType || !joinGift) {
+        showMessage('error', '❌ 請填寫所有必填欄位（含「參與致贈退休紀念品」）！');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '報名中...<span class="loading"></span>';
+
+      try {
+        const selectedGift   = document.querySelector('.gift-card.selected');
+        const giftSuggestion = document.getElementById('giftSuggestion').value.trim();
+        const carpoolSeats   = document.getElementById('carpoolSeats').value.trim();
+
+        // Determine final gift selection
+        let finalGift = '';
+        let finalGiftSuggestion = '';
+        
+        if (selectedCustomGift) {
+          // User clicked "自訂" button
+          finalGiftSuggestion = selectedCustomGift;
+        } else if (selectedGift) {
+          // User selected predefined gift
+          finalGift = selectedGift.dataset.gift;
+        } else if (giftSuggestion) {
+          // User filled custom gift but didn't click button - treat as custom
+          finalGiftSuggestion = giftSuggestion;
+        }
+
+        // ✅ [修正 v2] 改用 JSON 字串格式（符合 GAS 的 JSON.parse 解析）
+        const payload = JSON.stringify({
+          action:          'submitRegistration',
+          name:            name,
+          dept:            dept,
+          phone:           phone,
+          email:           email,
+          mealType:        mealType.value,
+          carpool:         carpool.value,
+          carpoolSeats:    carpoolSeats,
+          joinGift:        joinGift.value,
+          gift:            finalGift,
+          giftSuggestion:  finalGiftSuggestion,
+          notes:           document.getElementById('regNotes').value.trim()
+        });
+        await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: payload });
+
+        showMessage('success', '✓ 報名成功！期待在歡送會上見到您！');
+
+        // 清空表單
+        document.getElementById('regName').value  = '';
+        document.getElementById('regDept').value  = '';
+        document.getElementById('regPhone').value = '';
+        document.getElementById('regEmail').value = '';
+        document.getElementById('regNotes').value = '';
+        document.getElementById('giftSuggestion').value = '';
+        document.getElementById('carpoolSeats').value = '';
+        document.getElementById('giftSelectionGroup').style.display = 'none';
+        document.getElementById('carpoolSeatsGroup').style.display = 'none';
+        document.querySelectorAll('.gift-card').forEach(c => c.classList.remove('selected'));
+        document.querySelectorAll('input[name="mealType"]').forEach(r => r.checked = false);
+        document.querySelectorAll('input[name="joinGift"]').forEach(r => r.checked = false);
+        document.querySelector('input[name="carpool"][value="不需要"]').checked = true;
+        document.querySelectorAll('.radio-option').forEach(opt => opt.classList.remove('selected'));
+        selectedCustomGift = '';
+
+        setTimeout(loadData, 1000);
+      } catch (error) {
+        showMessage('error', '❌ 報名失敗：' + error.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '確認報名';
+      }
+    });
+    
+    // Initialize
+    updateDaysRemaining();
+    loadData();
+    
+    // Auto refresh every 30 seconds
+    setInterval(loadData, 30000);
+  </script>
+
+  <!-- Tweaks Panel (Pure JavaScript) -->
+  <script>
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{"backgroundColor":"#F8F9FA","textColor":"#212529","headingSize":60,"bodySize":16}/*EDITMODE-END*/;
+
+    (function() {
+      let tweaks = { ...TWEAK_DEFAULTS };
+      let isOpen = false;
+      let panel = null;
+
+      // Apply tweaks to CSS
+      function applyTweaks() {
+        document.documentElement.style.setProperty('--tweak-bg-color', tweaks.backgroundColor);
+        document.documentElement.style.setProperty('--tweak-text-color', tweaks.textColor);
+        document.documentElement.style.setProperty('--tweak-heading-size', tweaks.headingSize + 'px');
+        document.documentElement.style.setProperty('--tweak-body-size', tweaks.bodySize + 'px');
+      }
+
+      // Update tweak value
+      function updateTweak(key, value) {
+        tweaks[key] = value;
+        applyTweaks();
+        
+        // Notify parent
+        window.parent.postMessage({
+          type: '__edit_mode_set_keys',
+          edits: tweaks
+        }, '*');
+      }
+
+      // Create panel HTML
+      function createPanel() {
+        panel = document.createElement('div');
+        panel.style.cssText = `
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 320px;
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+          z-index: 10000;
+          font-family: system-ui, -apple-system, sans-serif;
+          display: none;
+        `;
+
+        panel.innerHTML = `
+          <div style="padding: 16px; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; font-size: 16px; font-weight: 600;">設計調整</h3>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <button id="tweaks-reset" style="border: 1px solid #ddd; background: #f5f5f5; font-size: 12px; cursor: pointer; padding: 4px 10px; border-radius: 6px; color: #555;">重設</button>
+              <button id="tweaks-close" style="border: none; background: none; font-size: 20px; cursor: pointer; padding: 4px 8px;">×</button>
+            </div>
+          </div>
+          
+          <div style="padding: 16px; max-height: 500px; overflow-y: auto;">
+            <!-- 顏色設定 -->
+            <div style="margin-bottom: 24px;">
+              <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">顏色</h4>
+              
+              <div style="margin-bottom: 12px;">
+                <label style="display: block; font-size: 13px; margin-bottom: 6px;">背景顏色</label>
+                <input type="color" id="tweak-bg" value="${tweaks.backgroundColor}" 
+                  style="width: 100%; height: 40px; cursor: pointer; border: 1px solid #ddd; border-radius: 6px;">
+                <span id="tweak-bg-val" style="font-size: 12px; color: #666; margin-top: 4px; display: block;">
+                  ${tweaks.backgroundColor}
+                </span>
+              </div>
+
+              <div style="margin-bottom: 12px;">
+                <label style="display: block; font-size: 13px; margin-bottom: 6px;">文字顏色</label>
+                <input type="color" id="tweak-text" value="${tweaks.textColor}"
+                  style="width: 100%; height: 40px; cursor: pointer; border: 1px solid #ddd; border-radius: 6px;">
+                <span id="tweak-text-val" style="font-size: 12px; color: #666; margin-top: 4px; display: block;">
+                  ${tweaks.textColor}
+                </span>
+              </div>
+            </div>
+
+            <!-- 字體大小 -->
+            <div>
+              <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">字體大小</h4>
+              
+              <div style="margin-bottom: 16px;">
+                <label style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px;">
+                  <span>標題大小</span>
+                  <span id="tweak-heading-val" style="font-weight: 600;">${tweaks.headingSize}px</span>
+                </label>
+                <input type="range" id="tweak-heading" min="32" max="80" step="2" value="${tweaks.headingSize}"
+                  style="width: 100%;">
+              </div>
+
+              <div>
+                <label style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px;">
+                  <span>內文大小</span>
+                  <span id="tweak-body-val" style="font-weight: 600;">${tweaks.bodySize}px</span>
+                </label>
+                <input type="range" id="tweak-body" min="12" max="24" step="1" value="${tweaks.bodySize}"
+                  style="width: 100%;">
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.body.appendChild(panel);
+
+        // Default values for reset
+        const RESET_DEFAULTS = {"backgroundColor":"#F8F9FA","textColor":"#212529","headingSize":60,"bodySize":16};
+
+        // Reset button
+        document.getElementById('tweaks-reset').addEventListener('click', () => {
+          tweaks = { ...RESET_DEFAULTS };
+          applyTweaks();
+          
+          // Update UI inputs
+          document.getElementById('tweak-bg').value = tweaks.backgroundColor;
+          document.getElementById('tweak-bg-val').textContent = tweaks.backgroundColor;
+          document.getElementById('tweak-text').value = tweaks.textColor;
+          document.getElementById('tweak-text-val').textContent = tweaks.textColor;
+          document.getElementById('tweak-heading').value = tweaks.headingSize;
+          document.getElementById('tweak-heading-val').textContent = tweaks.headingSize + 'px';
+          document.getElementById('tweak-body').value = tweaks.bodySize;
+          document.getElementById('tweak-body-val').textContent = tweaks.bodySize + 'px';
+          
+          // Notify parent to save
+          window.parent.postMessage({ type: '__edit_mode_set_keys', edits: tweaks }, '*');
+        });
+
+        // Event listeners
+        document.getElementById('tweaks-close').addEventListener('click', () => {
+          isOpen = false;
+          panel.style.display = 'none';
+          window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
+        });
+
+        document.getElementById('tweak-bg').addEventListener('input', (e) => {
+          updateTweak('backgroundColor', e.target.value);
+          document.getElementById('tweak-bg-val').textContent = e.target.value;
+        });
+
+        document.getElementById('tweak-text').addEventListener('input', (e) => {
+          updateTweak('textColor', e.target.value);
+          document.getElementById('tweak-text-val').textContent = e.target.value;
+        });
+
+        document.getElementById('tweak-heading').addEventListener('input', (e) => {
+          updateTweak('headingSize', parseInt(e.target.value));
+          document.getElementById('tweak-heading-val').textContent = e.target.value + 'px';
+        });
+
+        document.getElementById('tweak-body').addEventListener('input', (e) => {
+          updateTweak('bodySize', parseInt(e.target.value));
+          document.getElementById('tweak-body-val').textContent = e.target.value + 'px';
+        });
+      }
+
+      // Show/hide panel
+      function togglePanel(show) {
+        if (!panel) createPanel();
+        isOpen = show;
+        panel.style.display = show ? 'block' : 'none';
+      }
+
+      // Listen for messages
+      window.addEventListener('message', (event) => {
+        if (event.data.type === '__activate_edit_mode') {
+          togglePanel(true);
+        } else if (event.data.type === '__deactivate_edit_mode') {
+          togglePanel(false);
+        }
+      });
+
+      // Announce availability
+      window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+      // Apply initial tweaks
+      applyTweaks();
+    })();
+  </script>
+</body>
+</html>
