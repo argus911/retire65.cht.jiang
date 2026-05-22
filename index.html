@@ -908,7 +908,7 @@
     
     // Calculate days remaining
     function updateDaysRemaining() {
-      const deadline = new Date('2026-06-01');
+      const deadline = new Date('2026-05-20');
       const today = new Date();
       const daysRemaining = Math.max(0, Math.ceil((deadline - today) / (1000 * 60 * 60 * 24)));
       document.getElementById('daysRemaining').textContent = daysRemaining;
