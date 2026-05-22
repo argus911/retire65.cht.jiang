@@ -645,8 +645,20 @@
       </div>
     </div>
 
+    <!-- 報名截止公告 Banner（REGISTRATION_OPEN=false 時顯示） -->
+    <div id="registrationClosedBanner" class="section" style="display:none; background: linear-gradient(135deg, #fff3cd, #ffe082); border-left: 6px solid #F5A623; text-align: center; padding: 40px 32px;">
+      <div style="font-size: 56px; margin-bottom: 16px;">🎉</div>
+      <h2 style="font-size: var(--cht-text-3xl); font-weight: var(--cht-font-bold); color: #7a4f00; margin-bottom: 12px;">報名已截止</h2>
+      <p style="font-size: var(--cht-text-lg); color: #7a4f00; margin-bottom: 8px;">
+        感謝所有同仁的熱情參與！<br>報名已於 <strong>2026 年 6 月 1 日</strong> 截止。
+      </p>
+      <p style="font-size: var(--cht-text-base); color: #9e6900; margin-top: 16px;">
+        💌 歡迎繼續在下方留下對惠軫姊的祝福留言！
+      </p>
+    </div>
+
     <!-- Registration Form Section (含禮品挑選) -->
-    <div class="section">
+    <div id="registrationSection" class="section">
       <h2 class="section-title">
         歡送餐宴報名
       </h2>
@@ -879,7 +891,14 @@
   <script>
     // ✅ Google Apps Script 部署網址（已更新至最新版本）
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBt6FrMoIAcMGGCmZPI7AmuSHg6483T_vUG4Znnkc-kdP-gc4-u_3zXdK7OtzvGTYglw/exec';
-    
+
+    // ============================================================
+    // ★ 報名功能開關 ★
+    //   true  → 開放報名（顯示報名表單）
+    //   false → 關閉報名（顯示截止公告，僅保留留言功能）
+    // ============================================================
+    const REGISTRATION_OPEN = false;
+
     // Check if configured
     if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
       console.warn('請先設定 GOOGLE_SCRIPT_URL');
@@ -893,6 +912,19 @@
       const today = new Date();
       const daysRemaining = Math.max(0, Math.ceil((deadline - today) / (1000 * 60 * 60 * 24)));
       document.getElementById('daysRemaining').textContent = daysRemaining;
+    }
+
+    // 根據 REGISTRATION_OPEN 切換報名區塊顯示狀態
+    function initRegistrationState() {
+      const regSection = document.getElementById('registrationSection');
+      const closedBanner = document.getElementById('registrationClosedBanner');
+      if (REGISTRATION_OPEN) {
+        regSection.style.display = 'block';
+        closedBanner.style.display = 'none';
+      } else {
+        regSection.style.display = 'none';
+        closedBanner.style.display = 'block';
+      }
     }
     
     // Show message
@@ -1285,6 +1317,7 @@
     });
     
     // Initialize
+    initRegistrationState();
     updateDaysRemaining();
     loadData();
     
